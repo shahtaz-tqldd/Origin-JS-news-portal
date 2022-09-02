@@ -1,0 +1,17 @@
+.category-display{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    color: rgb(6, 188, 127);
+}
+
+.category-list{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+.category-list:hover{
+    background-color: rgb(203, 252, 244);
+    transition: 0.5s;
+
+}
