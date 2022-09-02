@@ -15,3 +15,8 @@
     transition: 0.5s;
 
 }
+
+.author-img{
+    height: 40px;
+    border-radius: 50%;
+}
