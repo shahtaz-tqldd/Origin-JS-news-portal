@@ -21,7 +21,7 @@ const displayCategory = categories => {
         // console.log(category)
         const li = document.createElement('li')
         li.classList.add('category-list')
-        li.innerHTML = `<span onclick="btnCategory('${category.category_id}')">${category.category_name}</span>`
+        li.innerHTML = `<span onclick="btnCategory('${category.category_id}', '${category.category_name}')">${category.category_name}</span>`
         categoryContainer.appendChild(li)
     })
 
@@ -32,27 +32,33 @@ loadCategory();
 /*
 2. Load News from the Category
 */
-const btnCategory = async (id) => {
+const btnCategory = async (id, catName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
     try {
         const res = await fetch(url);
         toggleLoader(true);
         const data = await res.json();
-        displayNews(data.data);
-
+        displayNews(data.data, catName);
     } catch (error) {
         const messageContainer = document.getElementById('total-news-item');
         messageContainer.innerText = error
     }
 }
-const displayNews = news => {
+const displayNews = (news, catName) => {
     console.log(news)
     const newsTotalContainer = document.getElementById('total-news-item')
-    newsTotalContainer.innerText = news.length ? news.length + ' Items Found' : 'No News Items Found'
+    newsTotalContainer.innerText = news.length ? news.length + ' News Items Found' : 'No News Items Found'
 
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML = ``
+
+    const newsCategory = document.getElementById('news-category-name')
+    newsCategory.innerText = catName
+
+    news.sort((a,b) => {
+        return b.total_view - a.total_view
+    })
 
     news.forEach(singleNews => {
         const divNews = document.createElement('div')
@@ -67,21 +73,21 @@ const displayNews = news => {
                     <h5 class="card-title pb-3">${singleNews.title}</h5>
                     <p class="card-text">${singleNews.details.slice(0, 300) + '...'}</p>
 
-                    <div class="d-flex align-items-center justify-content-between flex-wrap my-2">
-                        <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                        <div class="d-flex align-items-center p-1">
                             <img src="${singleNews.author.img}" class="author-img">
                             <div class="ms-2">
                                 <p class="mb-0">${singleNews.author.name ? singleNews.author.name : 'Annonymus Author'}</p>
                                 <p class="card-text"><small class="text-muted">${singleNews.author.published_date ? singleNews.author.published_date.slice(0, 10) : 'No Published Date Found'}</small></p>
                             </div>
                         </div>
-                        <div>
+                        <div class="p-1">
                             <i class="fa fa-light fa-eye"></i>
                             ${singleNews.total_view ? singleNews.total_view : 'No Data Found'}
                         </div>
-                        <div>${singleNews.rating.number}</div>
+                        <div class="p-1">${singleNews.rating.number}</div>
 
-                        <div data-bs-toggle="modal" data-bs-target="#newsModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
+                        <div data-bs-toggle="modal" data-bs-target="#newsModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer p-2">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
                     </div>
                 </div>
                 </div>
@@ -93,7 +99,7 @@ const displayNews = news => {
     toggleLoader(false);
 }
 
-btnCategory('01');
+btnCategory('01', 'Breaking News');
 
 /*
 3. Modal on Each News Items

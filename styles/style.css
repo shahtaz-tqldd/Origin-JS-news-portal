@@ -5,6 +5,8 @@ body {
 main{
     min-height: 60vh;
 }
+
+
 .category-display {
     display: flex;
     list-style: none;
@@ -30,6 +32,7 @@ main{
     background-color: rgb(185, 249, 238);
 }
 
+
 .pointer {
     cursor: pointer;
 }
@@ -50,7 +53,7 @@ main{
     max-width: 100%;
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:900px) {
     .category-display {
         justify-content:left;
     }
