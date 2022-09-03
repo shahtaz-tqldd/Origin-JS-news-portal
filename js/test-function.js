@@ -11,14 +11,14 @@ const loadCategory = async () => {
 
 const displayCategory = categories => {
     const categoryContainer = document.getElementById('news-category');
-    categories.forEach(category => {
+    categories.filter(category => {
         // console.log(category)
         const li = document.createElement('li')
         li.classList.add('category-list')
         li.innerHTML = `<span onclick="btnCategory('${category.category_id}')">${category.category_name}</span>`
         categoryContainer.appendChild(li)
-    })
 
+    })
 }
 
 loadCategory();
@@ -30,11 +30,10 @@ const btnCategory = async (id) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
     const res = await fetch(url);
-    toggleLoader(true);
     const data = await res.json();
     displayNews(data.data);
-    
 }
+
 const displayNews = news => {
     console.log(news)
     const newsTotalContainer = document.getElementById('total-news-item')
@@ -42,7 +41,6 @@ const displayNews = news => {
 
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML = ``
-    
     news.forEach(singleNews => {
         const divNews = document.createElement('div')
         divNews.innerHTML = `
@@ -78,8 +76,8 @@ const displayNews = news => {
         </div>
         `
         newsContainer.appendChild(divNews)
+
     })
-    toggleLoader(false);
 }
 
 btnCategory('01');
@@ -118,18 +116,4 @@ const displayWholeNews = news => {
 
 
     console.log(news)
-}
-
-/*
-4. spinner/toggle loader
-*/
-
-const toggleLoader = isLoading =>{
-    const spinner = document.getElementById('spinner')
-    if(isLoading){
-        spinner.classList.remove('d-none')
-    }
-    else{
-        spinner.classList.add('d-none')
-    }
 }

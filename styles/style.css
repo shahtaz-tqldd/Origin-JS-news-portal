@@ -1,7 +1,10 @@
 body {
     background-color: rgb(242, 242, 242);
-}
 
+}
+main{
+    min-height: 60vh;
+}
 .category-display {
     display: flex;
     list-style: none;
