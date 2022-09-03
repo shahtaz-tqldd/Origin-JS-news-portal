@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin | Blogs</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+
+    <!-- bootstrap stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/03c1d2f3f1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container pt-3">
+                <a class="navbar-brand" href=""><span
+                        class="bg-dark text-white fw-bold px-2 pb-1 rounded-1">Origin</span><span
+                        class="fs-5 fw-normal text-danger"> A News
+                        Portal</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="/">News</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Blogs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <hr>
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- blog headers -->
+        <section>
+            <h1 class="text-dark fw-bold mb-5">Origin Blog</h1>
+        </section>
+
+        <!-- Blogs display -->
+
+        <!-- Ques-1 -->
+        <div class="card mb-3 border-0 shadow">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/var-let-const.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4 fs-3">Difference Between var, let and const in Javascript</h5>
+                        <p class="card-text">A lot of shiny new features came out with ES2015 (ES6). And now, since it's
+                            2022, it's assumed that a lot of JavaScript developers have become familiar with and have
+                            started using these features.<br> <br>
+                            The differences between var, let, and const variable declaration in JavaScript include:
+                            Variables declared with var and const are scoped to the immediate function body.
+                            Variables declared with the var keyword are hoisted. Hoisting means that the variable can be
+                            accessed in their enclosing scope even before they are declared.
+                            Variables declared with the let keyword are block-scoped, which means the variables will
+                            have scope to the immediate enclosing block.
+
+
+                        </p>
+                        <p class="card-text"><small class="text-muted"><i class="fa-solid fa-pen-to-square me-1"></i>
+                                Origin Blog</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ques-2 -->
+        <div class="card mb-3 border-0 shadow">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/arrow and regular.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4 fs-3">Difference Between arrowe function and regular function</h5>
+                        <p class="card-text">
+                            Arrow function — also called fat arrow function— is a new feature introduced in ES6 that is
+                            a more concise syntax for writing function expressions. While both regular JavaScript
+                            functions and arrow functions work in a similar manner, there are certain differences
+                            between them. <br><br>
+                            <b>1. The arrow function </b>example above allows a developer to accomplish the same result
+                            with
+                            fewer lines of code and approximately half the typing.<br>
+
+                            Curly brackets aren’t required if only one expression is present. The above example can also
+                            be written like this: <br>
+
+                            let add = (x, y) => x + y; <br><br>
+
+                            If there’s only one argument, then the parentheses are not required either:<br>
+
+                            let squareNum = x => x * x;<br>
+                            What if there are no arguments?<br>
+
+                            let sayHi = _ => console.log(“Hi”);<br><br>
+
+                            <b>2. Arrow functions</b> do not have an arguments binding. However, they have access to the
+                            arguments object of the closest non-arrow parent function. Named and rest parameters are
+                            heavily relied upon to capture the arguments passed to arrow functions. <br> <br>
+
+                            In case of a regular function:<br>
+
+                            let myFunc = {<br>
+                            &nbsp;showArgs(){<br>
+                            &nbsp;&nbsp;console.log(arguments);<br>
+                            &nbsp;}<br>
+                            };<br>
+                            myFunc.showArgs(1, 2, 3, 4);<br>
+                        </p>
+                        <p class="card-text"><small class="text-muted"><i class="fa-solid fa-pen-to-square me-1"></i>
+                                Origin Blog</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ques-3 -->
+        <div class="card mb-3 border-0 shadow">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/array-methods.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4 fs-3">Javascript: map, forEach, filter and find</h5>
+                        <p class="card-text">
+                            <b>The map() array method</b><br>
+                            The map() method creates a new array by iterating through the elements and applying logic we
+                            provided in the function as an argument. We'll create a new array of full names of all the
+                            students in the students array.<br><br>
+
+                            const fullNames = students.map((element, index) => { <br>
+                            &nbsp;return {'fullName': element['f_name'] + ' ' + element['l_name']} <br>
+                            });<br>
+
+                            console.log(fullNames);<br><br>
+                            <b>The forEach() array method</b><br>
+                            forEach() calls a provided callbackFn function once for each element in an array in
+                            ascending index order. It is not invoked for index properties that have been deleted or are
+                            uninitialized. <br><br>
+
+                            callbackFn is invoked with three arguments:<br>
+
+                            <li>the value of the element</li>
+                            <li>the index of the element</li>
+                            <li>the Array object being traversed</li> <br>
+                            If a thisArg parameter is provided to forEach(), it will be used as callback's this value.
+                            The thisArg value ultimately observable by callbackFn is determined according to the usual
+                            rules for determining the this seen by a function. <br><br>
+                            The range of elements processed by forEach() is set before the first invocation of
+                            callbackFn. Elements which are assigned to indexes already visited, or to indexes outside
+                            the range, will not be visited by callbackFn. If existing elements of the array are changed
+                            or deleted, their value as passed to callbackFn will be the value at the time forEach()
+                            <br><br>
+
+                            <b>The filter() array method</b><br>
+                            filter() calls a provided callbackFn function once for each element in an array, and
+                            constructs a new array of all the values for which callbackFn returns a value that coerces
+                            to true. callbackFn is invoked only for indexes of the array which have assigned values; it
+                            is not invoked for indexes which have been deleted or which have never been assigned values.
+                            Array elements which do not pass the callbackFn test are skipped, and are not included in
+                            the new array. <br><br>
+
+                            <b>The find() array method</b><br>
+                            The find method executes the callbackFn function once for each index of the array until the
+                            callbackFn returns a truthy value. If so, find immediately returns the value of that
+                            element. Otherwise, find returns undefined. <br>
+
+                            callbackFn is invoked for every index of the array, not just those with assigned values.
+                            This means it may be less efficient for sparse arrays, compared to methods that only visit
+                            assigned values. <br>
+
+                            If a thisArg parameter is provided to find, it will be used as the this value inside each
+                            invocation of the callbackFn. If it is not provided, then undefined is used. <br><br>
+
+                            The find method does not mutate the array on which it is called, but the function provided
+                            to callbackFn can. If so, the elements processed by find are set before the first invocation
+                            of callbackFn. Therefore:
+
+                            <li>callbackFn will not visit any elements added to the array after the call to find begins.
+                            </li>
+                            <li>Elements which are assigned to indexes already visited, or to indexes outside the range,
+                                will not be visited by callbackFn.</li>
+                            <li>If an existing, yet-unvisited element of the array is changed by callbackFn, its value
+                                passed to the callbackFn will be the value at the time find visits that element's index.
+                            </li>
+                            <li>Elements that are deleted are still visited.</li>
+
+                        </p>
+                        <p class="card-text"><small class="text-muted"><i class="fa-solid fa-pen-to-square me-1"></i>
+                                Origin Blog</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ques-4 -->
+        <div class="card mb-3 border-0 shadow">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/template-tring.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4 fs-3">Why should you use template string</h5>
+                        <p class="card-text">
+                            Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                            insert/interpolate variables and expressions into strings without needing to concatenate
+                            like in older versions of JavaScript. It allows us to create strings that are complex and
+                            contain dynamic elements. Another great thing that comes with template strings are tags.
+                            Tags are functions that take a string and the decomposed parts of the string as parameters
+                            and are great for converting strings to different entities. <br><br>
+                            The syntax for creating template strings is by using backticks to delimit them. For example,
+                            we can write: <br><br>
+
+                            `This is a string` <br><br>
+                            This is a very simple example of a template string. All the content is constant and there
+                            are no variables or expressions in it. To add variables and or expressions to a string, we
+                            can do the following.
+                        </p>
+                        <p class="card-text"><small class="text-muted"><i class="fa-solid fa-pen-to-square me-1"></i>
+                                Origin Blog</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- spinner -->
+
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark mt-5">
+        <div class="text-center text-light py-4">
+            <small>All rights Reserved By</small><br>
+            &copy; Origin - A News Portal
+        </div>
+    </footer>
+
+</body>
+
+</html>

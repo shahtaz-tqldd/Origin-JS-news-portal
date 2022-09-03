@@ -4,9 +4,15 @@
 const loadCategory = async () => {
     const url = 'https://openapi.programming-hero.com/api/news/categories';
 
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategory(data.data.news_category);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategory(data.data.news_category);
+    } catch (error) {
+        const messageContainer = document.getElementById('total-news-item');
+        messageContainer.innerText = error
+    }
+
 }
 
 const displayCategory = categories => {
@@ -29,20 +35,25 @@ loadCategory();
 const btnCategory = async (id) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
-    const res = await fetch(url);
-    toggleLoader(true);
-    const data = await res.json();
-    displayNews(data.data);
-    
+    try {
+        const res = await fetch(url);
+        toggleLoader(true);
+        const data = await res.json();
+        displayNews(data.data);
+
+    } catch (error) {
+        const messageContainer = document.getElementById('total-news-item');
+        messageContainer.innerText = error
+    }
 }
 const displayNews = news => {
     console.log(news)
     const newsTotalContainer = document.getElementById('total-news-item')
-    newsTotalContainer.innerText = news.length ? news.length : 'No News'
+    newsTotalContainer.innerText = news.length ? news.length + ' Items Found' : 'No News Items Found'
 
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML = ``
-    
+
     news.forEach(singleNews => {
         const divNews = document.createElement('div')
         divNews.innerHTML = `
@@ -124,12 +135,12 @@ const displayWholeNews = news => {
 4. spinner/toggle loader
 */
 
-const toggleLoader = isLoading =>{
+const toggleLoader = isLoading => {
     const spinner = document.getElementById('spinner')
-    if(isLoading){
+    if (isLoading) {
         spinner.classList.remove('d-none')
     }
-    else{
+    else {
         spinner.classList.add('d-none')
     }
 }
