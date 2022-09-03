@@ -52,7 +52,7 @@ const displayNews = news => {
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title pb-3">${singleNews.title}</h5>
-                    <p class="card-text">${singleNews.details.slice(0, 400) + '...'}</p>
+                    <p class="card-text">${singleNews.details.slice(0, 300) + '...'}</p>
 
                     <div class="d-flex align-items-center justify-content-between flex-wrap my-2">
                         <div class="d-flex align-items-center">
