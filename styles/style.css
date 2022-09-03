@@ -16,7 +16,18 @@
 
 }
 
+.post-image{
+    object-fit: cover;
+    height: 100%;
+    padding: 15px;
+    border-radius: 20px;
+}
+
 .author-img{
     height: 40px;
     border-radius: 50%;
+}
+
+.blog-card{
+    /* max-width: 1000px; */
 }

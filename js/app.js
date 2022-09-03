@@ -44,31 +44,39 @@ const displayNews = news =>{
     news.forEach(singleNews =>{
         const divNews = document.createElement('div')
         divNews.innerHTML = `
-            <div class="card mb-3">
+        <div class="card mb-3 blog-card shadow border-0">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="${singleNews.image_url}" class="img-fluid rounded-start" alt="...">
+                    <img src="${singleNews.image_url}" class="img-fluid post-image" alt="${singleNews.title}">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${singleNews.title}</h5>
                     <p class="card-text">${singleNews.details.slice(0,400)+'...'}</p>
-                    <div class="d-flex">
-                        <img src="${singleNews.author.img}" class="author-img">
-                        <div>
-                            <p>${singleNews.author.name}</p>
-                            <p>${singleNews.author.published_date}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex">
+                            <img src="${singleNews.author.img}" class="author-img">
+                            <div class="ms-2">
+                                <p class="mb-0">${singleNews.author.name? singleNews.author.name : 'Annonymus Author'}</p>
+                                <p class="card-text"><small class="text-muted">${singleNews.author.published_date? singleNews.author.published_date.slice(0,10) : 'No Published Date Found'}</small></p>
+                            </div>
                         </div>
+                        <div>
+                            <i class="fa fa-light fa-eye"></i>
+                            ${singleNews.total_view? singleNews.total_view : 'No Data Found'}
+                        </div>
+                        <div>${singleNews.rating.number}</div>
+                        <div><i class="fa-solid fa-arrow-right-long text-primary"></i></div>
+                        
                     </div>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
                 </div>
             </div>
-            </div>
+        </div>
         `
         newsContainer.appendChild(divNews)
 
     })
 }
 
-btnCategory('05')
+btnCategory('01')
