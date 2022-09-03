@@ -1,12 +1,12 @@
 body {
     background-color: rgb(242, 242, 242);
-
 }
+
 main{
     min-height: 60vh;
 }
 
-
+/* category */
 .category-display {
     display: flex;
     list-style: none;
@@ -29,14 +29,14 @@ main{
 }
 
 .active{
-    background-color: rgb(185, 249, 238);
+    background-color: rgb(185, 203, 249);
 }
-
 
 .pointer {
     cursor: pointer;
 }
 
+/* news post */
 .post-image {
     object-fit: cover;
     height: 100%;
@@ -49,9 +49,7 @@ main{
     border-radius: 50%;
 }
 
-.blog-card {
-    max-width: 100%;
-}
+/* responsive card for mobile and tab */
 
 @media screen and (max-width:900px) {
     .category-display {

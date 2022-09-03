@@ -18,7 +18,6 @@ const loadCategory = async () => {
 const displayCategory = categories => {
     const categoryContainer = document.getElementById('news-category');
     categories.forEach(category => {
-        // console.log(category)
         const li = document.createElement('li')
         li.classList.add('category-list')
         li.innerHTML = `<span onclick="btnCategory('${category.category_id}', '${category.category_name}')">${category.category_name}</span>`
@@ -46,7 +45,6 @@ const btnCategory = async (id, catName) => {
     }
 }
 const displayNews = (news, catName) => {
-    console.log(news)
     const newsTotalContainer = document.getElementById('total-news-item')
     newsTotalContainer.innerText = news.length ? news.length + ' News Items Found' : 'No News Items Found'
 
@@ -55,7 +53,7 @@ const displayNews = (news, catName) => {
 
     const newsCategory = document.getElementById('news-category-name')
     newsCategory.innerText = catName
-
+    
     news.sort((a,b) => {
         return b.total_view - a.total_view
     })
@@ -63,7 +61,7 @@ const displayNews = (news, catName) => {
     news.forEach(singleNews => {
         const divNews = document.createElement('div')
         divNews.innerHTML = `
-        <div class="card mb-3 blog-card shadow border-0">
+        <div class="card mb-3 shadow border-0">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="${singleNews.image_url}" class="img-fluid post-image" alt="${singleNews.title}">
@@ -71,9 +69,8 @@ const displayNews = (news, catName) => {
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title pb-3">${singleNews.title}</h5>
-                    <p class="card-text">${singleNews.details.slice(0, 300) + '...'}</p>
-
-                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                    <p class="card-text">${singleNews.details.length>300? singleNews.details.slice(0, 300) + '...' : singleNews.details }</p>
+                    <div class="d-flex align-items-center justify-content-between flex-wrap mt-auto">
                         <div class="d-flex align-items-center p-1">
                             <img src="${singleNews.author.img}" class="author-img">
                             <div class="ms-2">
@@ -85,8 +82,10 @@ const displayNews = (news, catName) => {
                             <i class="fa fa-light fa-eye"></i>
                             ${singleNews.total_view ? singleNews.total_view : 'No Data Found'}
                         </div>
-                        <div class="p-1">${singleNews.rating.number}</div>
-
+                        <div class="p-1">
+                        <i class="fa-solid fa-star"></i>
+                            ${singleNews.rating.number}
+                        </div>
                         <div data-bs-toggle="modal" data-bs-target="#newsModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer p-2">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
                     </div>
                 </div>
@@ -132,9 +131,6 @@ const displayWholeNews = news => {
     <img src="${news.image_url}" class="container-fluid" >
     <p class="mt-4 p-3">${news.details}</p>
     `
-
-
-    console.log(news)
 }
 
 /*
