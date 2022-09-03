@@ -1,5 +1,5 @@
 /*
-1. Load Category
+1. Load All Categories
 */ 
 const loadCategory =async() =>{
     const url = 'https://openapi.programming-hero.com/api/news/categories';
@@ -66,7 +66,8 @@ const displayNews = news =>{
                             ${singleNews.total_view? singleNews.total_view : 'No Data Found'}
                         </div>
                         <div>${singleNews.rating.number}</div>
-                        <div><i class="fa-solid fa-arrow-right-long text-primary"></i></div>
+
+                        <div data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
                         
                     </div>
                 </div>
@@ -80,3 +81,19 @@ const displayNews = news =>{
 }
 
 btnCategory('01')
+
+/*
+3. Modal on Each News Items
+*/
+
+const loadNews = async(news_id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    displayWholeNews(data.data[0]);
+}
+
+const displayWholeNews = news =>{
+    console.log(news)
+}
