@@ -51,10 +51,10 @@ const displayNews = news =>{
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">${singleNews.title}</h5>
+                    <h5 class="card-title pb-3">${singleNews.title}</h5>
                     <p class="card-text">${singleNews.details.slice(0,400)+'...'}</p>
                     <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <img src="${singleNews.author.img}" class="author-img">
                             <div class="ms-2">
                                 <p class="mb-0">${singleNews.author.name? singleNews.author.name : 'Annonymus Author'}</p>
@@ -67,7 +67,7 @@ const displayNews = news =>{
                         </div>
                         <div>${singleNews.rating.number}</div>
 
-                        <div data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
+                        <div data-bs-toggle="modal" data-bs-target="#newsModal" onclick="loadNews('${singleNews._id}')" class="text-primary pointer">Read Full Story<i class="fa-solid fa-arrow-right-long ms-2"></i></div>
                         
                     </div>
                 </div>
@@ -95,5 +95,15 @@ const loadNews = async(news_id) =>{
 }
 
 const displayWholeNews = news =>{
+    const newsTitle = document.getElementById('newsModalLabel')
+    newsTitle.innerText = news.title
+
+    const newsContainer = document.getElementById('news-body')
+    newsContainer.innerHTML = `
+    <img src="${news.image_url}" class="container-fluid" >
+    <p class="mt-4 p-3">${news.details}</p>
+    `
+
+
     console.log(news)
 }
